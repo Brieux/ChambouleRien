@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShootBall : MonoBehaviour
 {
-    [SerializeField] int numberOfShot = 4;
+    public int numberOfShot = 4;
     [SerializeField] GameObject ballPrefab;
     [SerializeField] Transform spawnPoint;
     private Vector3 RaycastPos;

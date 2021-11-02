@@ -26,4 +26,9 @@ public class ScoreScript : MonoBehaviour
             nbCan -= 1;
         }
     }
+
+    public void finalScoring()
+    {
+        score += GetComponent<ShootBall>().numberOfShot * 10;
+    }
 }
