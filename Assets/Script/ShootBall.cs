@@ -10,6 +10,9 @@ public class ShootBall : MonoBehaviour
     private Vector3 RaycastPos;
     [SerializeField] GameObject balle;
     [SerializeField] bool activeBall = false;
+    [SerializeField] bool GameOver = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,19 +22,27 @@ public class ShootBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        bool isHit = Physics.Raycast(raycast, out hit, 100);
-        if (isHit)
+        if (GameOver == false)
         {
-            RaycastPos = hit.point;
-        }
-        if (availableShot() && !activeBall)
-        {
-            if (Input.GetMouseButtonDown(0))
+            Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            bool isHit = Physics.Raycast(raycast, out hit, 100);
+            if (isHit)
             {
-                activeBall = true;
-                Shoot();
+                RaycastPos = hit.point;
+            }
+            if (availableShot() && !activeBall)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    activeBall = true;
+                    Shoot();
+                }
+            }
+            if (!availableShot())
+            {
+                Debug.Log("GameOver");
+                GetComponent<ScoreScript>().Scoring();
             }
         }
     }
@@ -40,10 +51,12 @@ public class ShootBall : MonoBehaviour
     {
         if (numberOfShot > 0)
         {
+            
             return true;
         }
         else
         {
+            GameOver = true;
             return false;
         }
     }
@@ -57,12 +70,14 @@ public class ShootBall : MonoBehaviour
     {
         if (availableShot())
         {
+            
             balle = Instantiate(ballPrefab, spawnPoint.position, new Quaternion(0, 0, 0, 0));
             activeBall = false;
         }
     }
     public void Shoot()
     {
+        GetComponent<ScoreScript>().Scoring();
         balle.GetComponent<ImpulseBall>().Impulse(RaycastPos);
         setNumberOfShot(-1);
     }

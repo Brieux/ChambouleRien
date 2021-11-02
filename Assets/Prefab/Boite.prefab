@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1376956278395661699}
   - component: {fileID: 1376956278395661698}
   - component: {fileID: 1376956278395661710}
+  - component: {fileID: 2473642476336357957}
   m_Layer: 0
   m_Name: Boite
   m_TagString: Untagged
@@ -114,3 +115,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2473642476336357957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376956278395661701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841490797f0677b4d84115139ddfcae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
