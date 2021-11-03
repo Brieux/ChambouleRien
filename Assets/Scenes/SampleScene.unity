@@ -2188,8 +2188,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5877129606277601764, guid: f0ae1452cbcf3704a8706395fc34b343, type: 3}
+      propertyPath: TrailModule.ratio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877129606277601764, guid: f0ae1452cbcf3704a8706395fc34b343, type: 3}
+      propertyPath: TrailModule.shadowBias
+      value: 1.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877129606277601764, guid: f0ae1452cbcf3704a8706395fc34b343, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 9.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877129606277601764, guid: f0ae1452cbcf3704a8706395fc34b343, type: 3}
+      propertyPath: TrailModule.sizeAffectsLifetime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877129606277601764, guid: f0ae1452cbcf3704a8706395fc34b343, type: 3}
+      propertyPath: TrailModule.widthOverTrail.scalar
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 5877129606277601764, guid: f0ae1452cbcf3704a8706395fc34b343, type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
@@ -2213,7 +2229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5877129606277601765, guid: f0ae1452cbcf3704a8706395fc34b343, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.07
+      value: 23.069998
       objectReference: {fileID: 0}
     - target: {fileID: 5877129606277601765, guid: f0ae1452cbcf3704a8706395fc34b343, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2225,11 +2241,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5877129606277601765, guid: f0ae1452cbcf3704a8706395fc34b343, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5877129606277601765, guid: f0ae1452cbcf3704a8706395fc34b343, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5877129606277601765, guid: f0ae1452cbcf3704a8706395fc34b343, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2247,6 +2263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle System
       objectReference: {fileID: 0}
+    - target: {fileID: 5877129606277601771, guid: f0ae1452cbcf3704a8706395fc34b343, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5877129606706473935, guid: f0ae1452cbcf3704a8706395fc34b343, type: 3}
       propertyPath: playOnAwake
       value: 0
