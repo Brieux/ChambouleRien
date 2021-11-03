@@ -8,6 +8,7 @@ public class UIScript : MonoBehaviour
     [SerializeField] GameObject UICanvas;
     [SerializeField] GameObject UIScore;
     [SerializeField] GameObject UINbBalle;
+    [SerializeField] GameObject UINbCans;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,8 @@ public class UIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UIScore.GetComponent<Text>().text = GetComponent<ScoreScript>().score.ToString();
+        UIScore.GetComponent<Text>().text = "Score = " + GetComponent<ScoreScript>().score.ToString();
+        UINbCans.GetComponent<Text>().text = (GetComponent<LevelLoader>().nbCans[GetComponent<LevelLoader>().activLevel] - GetComponent<ScoreScript>().nbCanhit).ToString() + "/" + GetComponent<LevelLoader>().nbCans[GetComponent<LevelLoader>().activLevel].ToString();
         switch (GetComponent<ShootBall>().numberOfShot)
         {
             case 4:

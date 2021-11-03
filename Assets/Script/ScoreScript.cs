@@ -7,6 +7,7 @@ public class ScoreScript : MonoBehaviour
 
     public int score;
     public int nbCan = 0;
+    public int nbCanhit = 0;
     // Start is called before the first frame update
     void Start()
     {

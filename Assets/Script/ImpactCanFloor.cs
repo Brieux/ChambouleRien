@@ -23,6 +23,8 @@ public class ImpactCanFloor : MonoBehaviour
         {
             Hited = true;
             GameManager.Instance.GetComponent<ScoreScript>().nbCan += 1;
+            GameManager.Instance.GetComponent<ScoreScript>().nbCanhit += 1;
+            
         }
     }
 }

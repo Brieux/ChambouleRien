@@ -22,8 +22,22 @@ public class ShootBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameOver == false)
+       
+        if (GetComponent<ScoreScript>().nbCanhit == GetComponent<LevelLoader>().nbCans[GetComponent<LevelLoader>().activLevel])
         {
+            if (balle == null)
+            {
+                Debug.Log("salut");
+                resetBall();
+            }
+            GameOver = false;
+            GetComponent<ScoreScript>().finalScoring();
+            numberOfShot = 4;
+            GetComponent<ScoreScript>().nbCanhit = 0;
+            GetComponent<LevelLoader>().callNewLevel();
+        }
+        if (GameOver == false)
+        {  
             Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             bool isHit = Physics.Raycast(raycast, out hit, 100);
@@ -39,9 +53,9 @@ public class ShootBall : MonoBehaviour
                     Shoot();
                 }
             }
-            if (!availableShot())
+            if (!availableShot() && GetComponent<ScoreScript>().nbCanhit != GetComponent<LevelLoader>().nbCans[GetComponent<LevelLoader>().activLevel])
             {
-                Debug.Log("GameOver");
+                GameOver = true;
                 GetComponent<ScoreScript>().Scoring();
             }
         }
@@ -56,7 +70,7 @@ public class ShootBall : MonoBehaviour
         }
         else
         {
-            GameOver = true;
+            
             return false;
         }
     }
@@ -69,17 +83,16 @@ public class ShootBall : MonoBehaviour
     public void resetBall()
     {
         if (availableShot())
-        {
-            
+        {  
             balle = Instantiate(ballPrefab, spawnPoint.position, new Quaternion(0, 0, 0, 0));
             activeBall = false;
         }
     }
+
     public void Shoot()
     {
         GetComponent<ScoreScript>().Scoring();
         balle.GetComponent<ImpulseBall>().Impulse(RaycastPos);
         setNumberOfShot(-1);
     }
-
 }
