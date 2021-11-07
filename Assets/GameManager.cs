@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int state; //0 in menu, 1 in game, 2 in ending screen;
     [SerializeField] GameObject FXFirework;
     public bool win = false;
+    private bool TextUpdate = true;
 
     private void Awake()
     {
@@ -28,11 +29,17 @@ public class GameManager : MonoBehaviour
         if (win)
         {
             state = 3;
+            if (TextUpdate)
+            {
+                UI[3].GetComponentInChildren<win>().UpdateScore();
+                TextUpdate = false;
+            }
         }
         switch (state)
         {
             case 3:
-                Time.timeScale = 0;
+                camTransform.rotation = new Quaternion(-0.0975827575f, 0, 0, 0.995227456f);
+                FXFirework.GetComponent<ParticleSystem>().Play();
                 UI[3].SetActive(true);
                 UI[2].SetActive(false);
                 UI[1].SetActive(false);
@@ -65,10 +72,6 @@ public class GameManager : MonoBehaviour
                 UI[1].SetActive(false);
                 UI[0].SetActive(false);
                 break;
-        }
-        if (GetComponent<LevelLoader>().activLevel == 10 && GetComponent<ShootBall>().numberOfShot > 0)
-        {
-            FXFirework.GetComponent<ParticleSystem>().Play();
         }
     }
 }
