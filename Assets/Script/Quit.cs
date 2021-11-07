@@ -24,5 +24,7 @@ public class Quit : MonoBehaviour
     public void letsgo()
     {
         GameManager.Instance.state = 1;
+        GameManager.Instance.GetComponent<LevelLoader>().loadFirstLevel();
+        GameManager.Instance.GetComponent<ShootBall>().numberOfShot = 4;
     }
 }

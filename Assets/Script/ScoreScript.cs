@@ -22,10 +22,8 @@ public class ScoreScript : MonoBehaviour
 
     public void Scoring()
     {
-        while (nbCan > 0) {
-            score += nbCan;
-            nbCan -= 1;
-        }
+        score += ((nbCan * (nbCan + 1)) / 2);
+        nbCan = 0;
     }
 
     public void finalScoring()
