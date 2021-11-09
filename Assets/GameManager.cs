@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
                 UI[2].SetActive(false);
                 UI[1].SetActive(false);
                 UI[0].SetActive(false);
+                GetComponent<ShootBall>().balle.transform.Translate(40, 40, 40);
                 break;
             case 2:
                 UI[3].SetActive(false);

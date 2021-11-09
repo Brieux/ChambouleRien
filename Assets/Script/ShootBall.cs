@@ -8,10 +8,10 @@ public class ShootBall : MonoBehaviour
     [SerializeField] GameObject ballPrefab;
     [SerializeField] Transform spawnPoint;
     private Vector3 RaycastPos;
-    [SerializeField] GameObject balle;
+    public GameObject balle;
     [SerializeField] bool activeBall = false;
     [SerializeField] bool GameOver = false;
-
+    [SerializeField] GameObject rain;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,8 @@ public class ShootBall : MonoBehaviour
                 resetBall();
             }
             GameOver = false;
+            rain.SetActive(false);
+            GameManager.Instance.state = 1;
             GetComponent<ScoreScript>().finalScoring();
             numberOfShot = 4;
             GetComponent<ScoreScript>().nbCanhit = 0;
@@ -55,6 +57,9 @@ public class ShootBall : MonoBehaviour
             }
             if (!availableShot() && GetComponent<ScoreScript>().nbCanhit != GetComponent<LevelLoader>().nbCans[GetComponent<LevelLoader>().activLevel])
             {
+                
+                rain.SetActive(true);
+                GameManager.Instance.state = 2;
                 GameOver = true;
                 GetComponent<ScoreScript>().Scoring();
             }
